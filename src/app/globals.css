@@ -141,67 +141,73 @@ html {
 
 /* SOBRE MÍ */
 .sobre-mi {
-  background: #bcb9b9;
-  color: #000;
-  min-height: 100vh;     /* la sección ocupa toda la pantalla */
+  background: #dedede; /* azul de fondo */
+  min-height: 100vh;
   display: flex;
+  align-items: center;
+  padding: 40px;
 }
 
 .sobre-mi-content {
   display: flex;
-  flex: 1;               /* ocupa todo el espacio disponible */
-  align-items: stretch;  /* 🔑 hace que los hijos crezcan a la misma altura */
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
   width: 100%;
 }
 
+/* Foto izquierda */
 .sobre-mi-img {
-  flex: 1;               /* la columna de la foto ocupa 50% */
-  display: flex;         /* para que la imagen pueda estirarse */
-}
-
-.sobre-mi-img img {
-  width: 100%;
-  height: 100%;          /* 🔑 llena toda la columna en vertical */
-  object-fit: cover;     /* recorta la foto sin deformarla */
-}
-
-.sobre-mi-text {
-  flex: 1;               /* la columna de texto ocupa 50% */
+  flex: 1;
   display: flex;
-  flex-direction: column;
-  justify-content: center; /* centra el texto verticalmente */
-  padding: 40px;
-}
-
-
-/* Texto */
-.sobre-mi-text h2 {
-  font-size: 2rem;
-  font-weight: 800;
-  margin-bottom: 20px;
-}
-
-.sobre-mi-text p {
-  margin-bottom: 16px;
-  line-height: 1.6;
-}
-
-.sobre-mi-text .btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background: black;
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-  margin-top: 10px;
-  transition: background 0.2s;
-}
-
-.sobre-mi-text .btn:hover {
-  background: #222;
+  justify-content: center;
+  align-items: center;
 }
 
 .perfil-img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  opacity: 0.9;
+  border-radius: 12px;
+}
+
+/* Columna derecha */
+.sobre-mi-right {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Card principal */
+.sobre-mi-card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.sobre-mi-card h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Galería inferior */
+.sobre-mi-gallery {
+  display: flex;
+  gap: 20px;
+}
+
+.gallery-card {
+  flex: 1;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

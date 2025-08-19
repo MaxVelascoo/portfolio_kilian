@@ -16,34 +16,66 @@ export default function HomePage() {
       {/* SOBRE MÍ */}
       <section id="sobre-mi" className="sobre-mi">
         <div className="sobre-mi-content">
-          {/* Imagen a la izquierda */}
+          
+          {/* Foto izquierda */}
           <div className="sobre-mi-img">
             <Image
-              src="/foto_perfil.png" // la imagen debe estar en /public
+              src="/foto_perfil.png"
               alt="Kilian"
-              width={350}
-              height={450}
+              width={500}
+              height={800}
               className="perfil-img"
+              priority
             />
           </div>
 
-          {/* Texto a la derecha */}
-          <div className="sobre-mi-text">
-            <h2>SOBRE MÍ</h2>
-            <p>
-              Párrafo. Aquí puedes agregar tu propia biografía o descripción
-              personal. Explica quién eres, a qué te dedicas y qué te apasiona.
-            </p>
-            <p>
-              Este espacio es ideal para dar más detalles sobre tu experiencia y
-              habilidades. Añade tu toque personal para conectar con la audiencia.
-            </p>
-            <a href="#curriculum" className="btn">
-              Ver currículum
-            </a>
+          {/* Columna derecha */}
+          <div className="sobre-mi-right">
+            {/* Card de presentación */}
+            <div className="sobre-mi-card main-card">
+              <h2>SOBRE MÍ</h2>
+              <p>
+                Soy Kilian Zurera Vizuete, especialista en comunicación digital y 
+                creador de contenidos. Tras una etapa de prácticas en el departamento 
+                de marketing de Yaskawa Ibérica y experiencias reales gestionando 
+                proyectos en carretera y en ferias, ofrezco servicios de community 
+                management, producción y edición de vídeo, fotografía corporativa, 
+                gestión de redes y soporte en CRM y logística de eventos.
+              </p>
+              <p>
+                Me verás siempre con la cámara en la mano: me gusta documentar procesos, 
+                contar historias visuales y transformar ese material en piezas que conecten 
+                con audiencias reales.
+              </p>
+            </div>
+
+            {/* Galería inferior */}
+            <div className="sobre-mi-gallery">
+              <div className="gallery-card">
+                <Image
+                  src="/foto_corriendo.png"
+                  alt="Running"
+                  width={300}
+                  height={200}
+                  className="gallery-img"
+                />
+              </div>
+              <div className="gallery-card">
+                <Image
+                  src="/foto_puigmal.jpg"
+                  alt="Montaña"
+                  width={300}
+                  height={200}
+                  className="gallery-img"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
+
+
 
       {/* PROYECTOS */}
       <section id="proyectos" className="section">
