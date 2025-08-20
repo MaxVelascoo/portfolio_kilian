@@ -141,7 +141,7 @@ html {
 
 /* SOBRE MÍ */
 .sobre-mi {
-  background: #dedede; /* azul de fondo */
+  background: #ffffff; /* azul de fondo */
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -210,4 +210,241 @@ html {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Seccion de Proyectos */
+
+.proyectos {
+  background: #00065E; /* azul como referencia */
+  color: white;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.proyectos h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+.proyectos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+  gap: 40px; /* espacio entre elementos */
+  justify-items: center;
+}
+
+.proyectos-grid a {
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+
+}
+
+.proyectos-grid a img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid white;
+  object-fit: cover;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Efecto hover */
+.proyectos-grid a:hover img {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(255,255,255,0.7);
+}
+
+.proyectos-grid a p {
+  margin-top: 10px;
+  font-size: 0.80rem;
+  font-weight: 600;
+}
+
+
+/* Card emergente de Proyecto */
+
+/* Botones en la grid (en lugar de <a>) */
+.proyecto-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  color: white;
+}
+
+.proyecto-btn img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid white;
+  object-fit: cover;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.proyecto-btn:hover img {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(255,255,255,0.7);
+}
+
+/* --- Modal --- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-card {
+  background: white;
+  color: black;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+.modal-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.modal-card p {
+  margin-bottom: 20px;
+  line-height: 1.6;}
+
+.close-btn {
+  padding: 10px 20px;
+  background: #346aff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.close-btn:hover {
+  background: #345ad6;
+}
+
+
+.view_more-btn {
+  padding: 10px 20px;
+  background: #346aff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.view_more-btn:hover {
+  background: #345ad6;
+}
+
+
+/* CONTACTO */
+.contacto {
+  background: #2b53a0; /* azul */
+  color: white;
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.contacto h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 50px;
+}
+
+.contacto-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* INFO izquierda */
+.contacto-info {
+  flex: 1;
+  text-align: left;
+}
+
+.contacto-info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.contacto-info p {
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.contacto-redes {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.contacto-redes img {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1); /* hace iconos blancos */
+  transition: transform 0.3s;
+}
+
+.contacto-redes img:hover {
+  transform: scale(1.2);
+}
+
+/* FORM derecha */
+.contacto-form {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.contacto-form input,
+.contacto-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+}
+
+.contacto-form textarea {
+  resize: none;
+}
+
+.contacto-form button {
+  align-self: flex-start;
+  padding: 10px 20px;
+  background: #5c7ce3;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.contacto-form button:hover {
+  background: #4160c5;
 }

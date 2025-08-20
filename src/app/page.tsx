@@ -1,13 +1,18 @@
 import Image from "next/image";
+import Proyectos from "@/components/Proyectos";
+import { FaInstagram } from "react-icons/fa";
+import { SiStrava } from "react-icons/si";
+
 
 export default function HomePage() {
   return (
     <div>
       {/* INICIO */}
-     <section id="inicio" className="hero">
+      <section id="inicio" className="hero">
         <div className="hero-content">
           <h1>
-            <span>KILIAN</span> <span className="highlight"></span> ZURERA VIZUETE
+            <span>KILIAN</span>{" "}
+            <span className="highlight"></span> ZURERA VIZUETE
           </h1>
           <p>Community Manager y Marketing Specialist</p>
         </div>
@@ -16,7 +21,6 @@ export default function HomePage() {
       {/* SOBRE MÍ */}
       <section id="sobre-mi" className="sobre-mi">
         <div className="sobre-mi-content">
-          
           {/* Foto izquierda */}
           <div className="sobre-mi-img">
             <Image
@@ -35,17 +39,18 @@ export default function HomePage() {
             <div className="sobre-mi-card main-card">
               <h2>SOBRE MÍ</h2>
               <p>
-                Soy Kilian Zurera Vizuete, especialista en comunicación digital y 
-                creador de contenidos. Tras una etapa de prácticas en el departamento 
-                de marketing de Yaskawa Ibérica y experiencias reales gestionando 
-                proyectos en carretera y en ferias, ofrezco servicios de community 
-                management, producción y edición de vídeo, fotografía corporativa, 
-                gestión de redes y soporte en CRM y logística de eventos.
+                Soy Kilian Zurera Vizuete, especialista en comunicación digital
+                y creador de contenidos. Tras una etapa de prácticas en el
+                departamento de marketing de Yaskawa Ibérica y experiencias
+                reales gestionando proyectos en carretera y en ferias, ofrezco
+                servicios de community management, producción y edición de
+                vídeo, fotografía corporativa, gestión de redes y soporte en CRM
+                y logística de eventos.
               </p>
               <p>
-                Me verás siempre con la cámara en la mano: me gusta documentar procesos, 
-                contar historias visuales y transformar ese material en piezas que conecten 
-                con audiencias reales.
+                Me verás siempre con la cámara en la mano: me gusta documentar
+                procesos, contar historias visuales y transformar ese material
+                en piezas que conecten con audiencias reales.
               </p>
             </div>
 
@@ -74,14 +79,8 @@ export default function HomePage() {
         </div>
       </section>
 
-
-
-
       {/* PROYECTOS */}
-      <section id="proyectos" className="section">
-        <h2>Proyectos</h2>
-        <p>En este apartado puedes mostrar tus proyectos realizados.</p>
-      </section>
+      <Proyectos />
 
       {/* GALERÍA */}
       <section id="galeria" className="section">
@@ -100,6 +99,52 @@ export default function HomePage() {
         <h2>Representación</h2>
         <p>Datos de tu agencia, representante o formas de contacto.</p>
       </section>
+
+      {/* CONTACTO */}
+      <section id="contacto" className="contacto">
+        <h2>CONTACTO</h2>
+        <div className="contacto-content">
+          
+          {/* INFO IZQUIERDA */}
+          <div className="contacto-info">
+            <h3>INFO</h3>
+            <p>Viladecans, Barcelona</p>
+            <p>Tel. 722730260</p>
+            <p>kilianzurera@gmail.com</p>
+
+            <div className="contacto-redes">
+              <a
+                href="https://instagram.com/kilian.zv"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaInstagram size={28} color="white" />
+              </a>
+              <a
+                href="https://www.strava.com/athletes/59878974"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <SiStrava size={28} color="#fc4c02" />
+              </a>
+            </div>
+          </div>
+      
+          {/* FORMULARIO DERECHA */}
+          <form className="contacto-form">
+            <div className="form-row">
+              <input type="text" placeholder="Nombre" required />
+              <input type="text" placeholder="Apellidos" required />
+            </div>
+            <input type="text" placeholder="Asunto" required />
+            <textarea placeholder="Mensaje" rows={6} required></textarea>
+            <button type="submit">ENVIAR</button>
+          </form>
+        </div>
+      </section>
+
     </div>
+
+
   );
 }
