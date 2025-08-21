@@ -61,10 +61,12 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #eaeaea;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
+
 
 /* Reset básico */
 * {
@@ -141,7 +143,7 @@ html {
 
 /* SOBRE MÍ */
 .sobre-mi {
-  background: #ffffff; /* azul de fondo */
+  background: #0d1b2a; /* azul de fondo */
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -212,82 +214,118 @@ html {
   object-fit: cover;
 }
 
-/* Seccion de Proyectos */
-
+/* PROYECTOS */
 .proyectos {
-  background: #00065E; /* azul como referencia */
-  color: white;
+  position: relative;
+  background-image: url("/foto_fondo2.png"); /* tu imagen */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* efecto estático */
   padding: 60px 40px;
   text-align: center;
+  color: white;
+  overflow: hidden;
+  z-index: 1;
 }
+
+.proyectos::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35); /* capa oscura suave */
+  z-index: 0; /* por debajo */
+}
+
+.proyectos > * {
+  position: relative;
+  z-index: 1; /* contenido encima de la capa oscura */
+}
+
+
+
 
 .proyectos h2 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 800;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
+  letter-spacing: 1px;
 }
 
-.proyectos-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columnas */
-  gap: 40px; /* espacio entre elementos */
-  justify-items: center;
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.proyectos-grid a {
-  text-decoration: none;
-  color: white;
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-
+.carousel-window {
+  width: 80%;
+  overflow: hidden;
 }
 
-.proyectos-grid a img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 4px solid white;
-  object-fit: cover;
-  transition: transform 0.3s, box-shadow 0.3s;
+.carousel-track {
+  display: flex;
+  gap: 60px;
+  transition: transform 0.8s ease-in-out;
 }
 
-/* Efecto hover */
-.proyectos-grid a:hover img {
-  transform: scale(1.08);
-  box-shadow: 0 0 20px rgba(255,255,255,0.7);
-}
-
-.proyectos-grid a p {
-  margin-top: 10px;
-  font-size: 0.80rem;
-  font-weight: 600;
-}
-
-
-/* Card emergente de Proyecto */
-
-/* Botones en la grid (en lugar de <a>) */
 .proyecto-btn {
   background: none;
   border: none;
-  cursor: pointer;
   text-align: center;
   color: white;
+  cursor: pointer;
+  flex: 0 0 calc(25% - 60px); /* 4 visibles */
 }
 
 .proyecto-btn img {
-  width: 150px;
-  height: 150px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   border: 4px solid white;
   object-fit: cover;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .proyecto-btn:hover img {
-  transform: scale(1.08);
-  box-shadow: 0 0 20px rgba(255,255,255,0.7);
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
 }
+
+.proyecto-btn p {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.arrow {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 50%;
+  transition: background 0.3s;
+  z-index: 2;
+}
+
+.arrow:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.arrow.left {
+  position: absolute;
+  left: -50px;
+}
+
+.arrow.right {
+  position: absolute;
+  right: -50px;
+}
+
 
 /* --- Modal --- */
 .modal-overlay {
@@ -352,7 +390,7 @@ html {
 
 /* CONTACTO */
 .contacto {
-  background: #2b53a0; /* azul */
+  background: #048484; /* azul */
   color: white;
   padding: 80px 40px;
   text-align: center;
@@ -447,4 +485,140 @@ html {
 
 .contacto-form button:hover {
   background: #4160c5;
+}
+
+/* EXPERIENCIA */
+.experiencia {
+  background: #0d1b2a; /* oscuro para resaltar */
+  color: white;
+  padding: 80px 40px;
+}
+
+.experiencia h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+  font-weight: bold;
+}
+
+/* Contenedor timeline */
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Línea central */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: teal;
+  transform: translateX(-50%);
+}
+
+/* Cada item */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px 40px;
+}
+
+.timeline-item .content {
+  background: #1b263b;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+}
+
+/* Puntos en la línea */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  width: 20px;
+  height: 20px;
+  background: teal;
+  border-radius: 50%;
+  border: 3px solid white;
+  z-index: 1;
+}
+
+.timeline-item.left::before {
+  right: -10px;
+}
+
+.timeline-item.right::before {
+  left: -10px;
+}
+
+.timeline-item h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.timeline-item span {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.timeline-item p {
+  margin-top: 10px;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+.timeline-item .content {
+  background: #1b263b;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  cursor: pointer; /* ya parece clicable */
+}
+
+.timeline-item .content:hover {
+  transform: scale(1.03); /* pequeño zoom */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* sombra */
+  background: #24354d; /* un poquito más claro */
+}
+
+
+.digital-container {
+  background: black;
+  color: orange;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.digital-clock {
+  font-family: "Courier New", monospace;
+  font-size: 6rem;
+  color: #ff8800;
+  text-shadow: 0 0 10px #ff8800, 0 0 20px #ff8800;
+  letter-spacing: 5px;
+}
+
+.finished-text {
+  font-family: Arial, sans-serif;
+  font-size: 2.5rem;
+  color: #00ff99;
+  text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99;
 }

@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Proyectos from "@/components/Proyectos";
+import Experiencia from "@/components/Experiencia";
 import { FaInstagram } from "react-icons/fa";
 import { SiStrava } from "react-icons/si";
 
-
 export default function HomePage() {
   return (
-    <div>
+    <div className="folio">
       {/* INICIO */}
       <section id="inicio" className="hero">
         <div className="hero-content">
@@ -35,26 +35,18 @@ export default function HomePage() {
 
           {/* Columna derecha */}
           <div className="sobre-mi-right">
-            {/* Card de presentación */}
             <div className="sobre-mi-card main-card">
               <h2>SOBRE MÍ</h2>
               <p>
                 Soy Kilian Zurera Vizuete, especialista en comunicación digital
-                y creador de contenidos. Tras una etapa de prácticas en el
-                departamento de marketing de Yaskawa Ibérica y experiencias
-                reales gestionando proyectos en carretera y en ferias, ofrezco
-                servicios de community management, producción y edición de
-                vídeo, fotografía corporativa, gestión de redes y soporte en CRM
-                y logística de eventos.
+                y creador de contenidos...
               </p>
               <p>
-                Me verás siempre con la cámara en la mano: me gusta documentar
-                procesos, contar historias visuales y transformar ese material
-                en piezas que conecten con audiencias reales.
+                Me verás siempre con la cámara en la mano...
               </p>
             </div>
 
-            {/* Galería inferior */}
+            {/* Galería */}
             <div className="sobre-mi-gallery">
               <div className="gallery-card">
                 <Image
@@ -77,35 +69,18 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section>  
 
       {/* PROYECTOS */}
       <Proyectos />
 
-      {/* GALERÍA */}
-      <section id="galeria" className="section">
-        <h2>Galería</h2>
-        <p>Aquí puedes añadir fotos, proyectos visuales, etc.</p>
-      </section>
-
-      {/* CURRÍCULUM */}
-      <section id="curriculum" className="section">
-        <h2>Currículum</h2>
-        <p>Un resumen de tu experiencia profesional y estudios.</p>
-      </section>
-
-      {/* REPRESENTACIÓN */}
-      <section id="representacion" className="section">
-        <h2>Representación</h2>
-        <p>Datos de tu agencia, representante o formas de contacto.</p>
-      </section>
+      {/* EXPERIENCIA */}
+      <Experiencia />
 
       {/* CONTACTO */}
       <section id="contacto" className="contacto">
         <h2>CONTACTO</h2>
         <div className="contacto-content">
-          
-          {/* INFO IZQUIERDA */}
           <div className="contacto-info">
             <h3>INFO</h3>
             <p>Viladecans, Barcelona</p>
@@ -118,7 +93,7 @@ export default function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FaInstagram size={28} color="white" />
+                <FaInstagram size={28} color="black" />
               </a>
               <a
                 href="https://www.strava.com/athletes/59878974"
@@ -129,8 +104,7 @@ export default function HomePage() {
               </a>
             </div>
           </div>
-      
-          {/* FORMULARIO DERECHA */}
+
           <form className="contacto-form">
             <div className="form-row">
               <input type="text" placeholder="Nombre" required />
@@ -142,9 +116,6 @@ export default function HomePage() {
           </form>
         </div>
       </section>
-
     </div>
-
-
   );
 }

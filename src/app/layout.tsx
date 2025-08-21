@@ -43,9 +43,8 @@ export default function RootLayout({
             <a href="#inicio" className="active">Inicio</a>
             <a href="#sobre-mi">Sobre mí</a>
             <a href="#proyectos">Proyectos</a>
-            <a href="#galeria">Galería</a>
-            <a href="#curriculum">Currículum</a>
-            <a href="#representacion">Representación</a>
+            <a href="#experiencia">Experiencia</a>
+            <a href="#quiromasajista">Quiromasajista</a>
           </nav>
         </header>
         

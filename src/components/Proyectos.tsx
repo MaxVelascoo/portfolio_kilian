@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface Cliente {
   usuario: string;
@@ -56,21 +56,81 @@ const clientes: Cliente[] = [
 
 export default function Proyectos() {
   const [selectedCliente, setSelectedCliente] = useState<Cliente | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const clientesVisibles = 4;
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  const startAutoPlay = () => {
+    intervalRef.current = setInterval(() => {
+      nextSlide();
+    }, 5000);
+  };
+
+  const resetAutoPlay = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    startAutoPlay();
+  };
+
+  useEffect(() => {
+    startAutoPlay();
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, []);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % clientes.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + clientes.length) % clientes.length);
+  };
+
+  const handleNext = () => {
+    nextSlide();
+    resetAutoPlay();
+  };
+
+  const handlePrev = () => {
+    prevSlide();
+    resetAutoPlay();
+  };
+
+  // Duplicamos lista para simular carrusel infinito
+  const extendedClientes = [...clientes, ...clientes];
 
   return (
     <section id="proyectos" className="proyectos">
       <h2>PROYECTOS Y EXPERIENCIAS</h2>
-      <div className="proyectos-grid">
-        {clientes.map((cliente) => (
-          <button
-            key={cliente.usuario}
-            className="proyecto-btn"
-            onClick={() => setSelectedCliente(cliente)}
+
+      <div className="carousel">
+        <button className="arrow left" onClick={handlePrev}>
+          ❮
+        </button>
+
+        <div className="carousel-window">
+          <div
+            className="carousel-track"
+            style={{
+              transform: `translateX(-${currentIndex * (100 / clientesVisibles)}%)`,
+            }}
           >
-            <img src={cliente.img} alt={cliente.usuario} />
-            <p>{cliente.usuario}</p>
-          </button>
-        ))}
+            {extendedClientes.map((cliente, idx) => (
+              <button
+                key={`${cliente.usuario}-${idx}`}
+                className="proyecto-btn"
+                onClick={() => setSelectedCliente(cliente)}
+              >
+                <img src={cliente.img} alt={cliente.usuario} />
+                <p>{cliente.usuario}</p>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <button className="arrow right" onClick={handleNext}>
+          ❯
+        </button>
       </div>
 
       {/* Modal */}
@@ -95,12 +155,6 @@ export default function Proyectos() {
               onClick={() => setSelectedCliente(null)}
             >
               Cerrar
-            </button>
-            <button
-              className="view_more-btn"
-              onClick={() => setSelectedCliente(null)}
-            >
-              Ver más
             </button>
           </div>
         </div>
